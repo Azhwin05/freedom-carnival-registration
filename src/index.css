@@ -1,0 +1,38 @@
+:root {
+  --primary-color: #008080; /* Teal/Deep Green - Professional & Trustworthy */
+  --primary-dark: #005f5f;
+  --secondary-color: #f7a072; /* Soft Orange/Peach - Warmth */
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-gradient-start: #f0f9ff;
+  --bg-gradient-end: #e0f2fe;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --error-color: #ef4444;
+  --success-color: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start) 0%,
+    var(--bg-gradient-end) 100%
+  );
+  color: var(--text-dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}

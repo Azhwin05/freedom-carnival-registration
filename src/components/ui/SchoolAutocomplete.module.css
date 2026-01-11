@@ -1,0 +1,71 @@
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding-right: 40px !important; /* Ensure space for search icon and override default if needed */
+}
+
+.searchIcon {
+  position: absolute;
+  right: 12px;
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #e2e8f0;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  margin-top: 4px;
+}
+
+.item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background-color: var(--bg-gradient-start);
+}
+
+.schoolName {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.schoolAddress {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.loading {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  padding: 8px;
+  text-align: right;
+}
