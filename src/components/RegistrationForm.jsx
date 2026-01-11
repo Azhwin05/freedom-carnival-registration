@@ -13,10 +13,32 @@ import styles from './RegistrationForm.module.css';
 const RegistrationForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [registrationId, setRegistrationId] = useState(null);
   const methods = useForm({
     mode: 'onTouched'
   });
+
+  // Auto-Save: Load draft on mount
+  useEffect(() => {
+      const savedData = localStorage.getItem('ooruni_registration_draft');
+      if (savedData) {
+          try {
+              const parsed = JSON.parse(savedData);
+              methods.reset(parsed); // Restore form values
+          } catch (e) {
+              console.error("Failed to load draft", e);
+          }
+      }
+  }, [methods]);
+
+  // Auto-Save: Save on change (using watch)
+  useEffect(() => {
+      const subscription = methods.watch((value) => {
+          localStorage.setItem('ooruni_registration_draft', JSON.stringify(value));
+      });
+      return () => subscription.unsubscribe();
+  }, [methods.watch]);
 
   const steps = [
     "School Info", "Contact", "Demographics", "Logistics", "Review"
@@ -35,7 +57,11 @@ const RegistrationForm = () => {
 
   const handleNext = async () => {
     if (currentStep === steps.length - 1) {
+        // Prevent duplicate submissions
+        if (isSubmitting) return;
+
         // Submit logic
+        setIsSubmitting(true);
         const values = methods.getValues();
         
         try {
@@ -87,10 +113,12 @@ const RegistrationForm = () => {
             });
 
             setRegistrationId(regCode); // Store for Success page
+            localStorage.removeItem('ooruni_registration_draft'); // Clear draft
             setIsSubmitted(true);
         } catch (error) {
             console.error('Error submitting form:', error);
             alert(`Submission Error: ${error.message || JSON.stringify(error)}`);
+            setIsSubmitting(false); // Re-enable button on error
         }
         return;
     }
@@ -137,7 +165,14 @@ const RegistrationForm = () => {
 
         <div className={styles.navigation}>
            <button type="button" disabled={currentStep === 0} onClick={() => setCurrentStep(prev => prev - 1)}>Back</button>
-           <button type="button" onClick={handleNext}>{currentStep === steps.length - 1 ? 'Submit' : 'Next'}</button>
+           <button 
+             type="button" 
+             onClick={handleNext}
+             disabled={isSubmitting}
+             style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+           >
+             {currentStep === steps.length - 1 ? (isSubmitting ? 'Submitting...' : 'Submit') : 'Next'}
+           </button>
         </div>
       </div>
     </div>

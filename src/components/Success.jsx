@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
-// Actually, let's make a new module for Success to keep it clean.
+import confetti from 'canvas-confetti';
 import successStyles from './Success.module.css';
 
 const Success = ({ id }) => {
+  useEffect(() => {
+    // Fire confetti
+    const duration = 3000;
+    const end = Date.now() + duration;
+
+    const frame = () => {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#0d9488', '#0f766e', '#ccfbf1']
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+         colors: ['#0d9488', '#0f766e', '#ccfbf1']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+    frame();
+  }, []);
+
   return (
     <div className={successStyles.container}>
       <motion.div 
