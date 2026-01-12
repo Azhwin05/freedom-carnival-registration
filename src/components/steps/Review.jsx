@@ -41,6 +41,7 @@ const Review = () => {
                 data={{
                     "Institution Name": values.schoolName,
                     "Address": values.schoolAddress,
+                    "Location": values.locationPin || "Not provided",
                     "Pickup Location": values.pickupLocationUrl || "Not provided"
                 }}
             />

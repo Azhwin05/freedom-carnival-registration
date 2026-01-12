@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../ui/Input';
-import MapPicker from '../ui/MapPicker';
+// MapPicker removed as per request
 import SchoolAutocomplete from '../ui/SchoolAutocomplete';
 import styles from './Steps.module.css';
 
@@ -21,7 +21,12 @@ const SchoolInfo = () => {
         required 
       />
 
-      <MapPicker name="locationPin" label="School Location (Tap to Drop Pin)" />
+      <Input 
+        name="locationPin" 
+        label="Location" 
+        placeholder="e.g. Near Bus Stand, Main Road" 
+        required={false}
+      />
 
       <Input 
         name="pickupLocationUrl" 
