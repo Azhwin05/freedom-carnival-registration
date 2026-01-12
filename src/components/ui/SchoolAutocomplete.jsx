@@ -4,29 +4,15 @@ import { Search } from 'lucide-react';
 import styles from './Input.module.css';
 import autoStyles from './SchoolAutocomplete.module.css';
 
-// Hardcoded for reliability
-const PRELOADED_SCHOOLS = [
-    { "name": "Government Higher Secondary School, Saidapet", "type": "Government", "ward": 135, "address": "Saidapet, Chennai - 600015" },
-    { "name": "Chennai Corporation Boys Higher Secondary School, Egmore", "type": "Government", "ward": 107, "address": "Egmore, Chennai - 600008" },
-    { "name": "GHSS Velachery", "type": "Government Higher Secondary", "ward": 152, "address": "Velachery Main Road, Chennai" },
-    { "name": "Government Girls Higher Secondary School, Perambur", "type": "Government", "ward": 89, "address": "Perambur High Road, Chennai - 600011" },
-    { "name": "CPS Chinnandikuppam", "type": "Government Primary", "ward": 2, "address": "George Town, Chennai - 600001" },
-    { "name": "GHSS Anna Nagar", "type": "Government Higher Secondary", "ward": 164, "address": "2nd Avenue, Anna Nagar West, Chennai" },
-    { "name": "St. Joseph's Anglo Indian Higher Secondary School", "type": "Private Aided", "ward": 119, "address": "Vepery, Chennai - 600007" },
-    { "name": "Don Bosco Higher Secondary School", "type": "Private", "ward": 141, "address": "Egmore, Chennai - 600008" },
-    { "name": "Santhome Higher Secondary School", "type": "Private Aided", "ward": 145, "address": "Santhome High Road, Chennai - 600004" },
-    { "name": "Little Flower Higher Secondary School", "type": "Private", "ward": 93, "address": "Vadapalani, Chennai - 600026" },
-    { "name": "Chennai Corporation Girls Higher Secondary School, T. Nagar", "type": "Government", "ward": 124, "address": "T. Nagar, Chennai - 600017" },
-    { "name": "GHSS Thiruvanmiyur", "type": "Government Higher Secondary", "ward": 200, "address": "L.B. Road, Thiruvanmiyur, Chennai" },
-    { "name": "Padma Subrahmaniam Kalyanasundaram Corporation Girls Higher Secondary School", "type": "Government", "ward": 112, "address": "Nungambakkam, Chennai - 600034" },
-    { "name": "HLC International School", "type": "Private", "ward": 174, "address": "Kalmandapam, Besant Nagar, Chennai" },
-    { "name": "SBOA School & Junior College", "type": "Private", "ward": 166, "address": "Anna Nagar West, Chennai - 600040" },
-    { "name": "GHSS Ambattur", "type": "Government Higher Secondary", "ward": 109, "address": "Ambattur, Chennai - 600053" },
-    { "name": "Government High School, Kodungaiyur", "type": "Government", "ward": 94, "address": "Kodungaiyur, Chennai - 600118" },
-    { "name": "DAV Boys Higher Secondary School", "type": "Private", "ward": 128, "address": "Gopalapuram, Chennai - 600086" },
-    { "name": "Justice Basheer Ahmed Sayeed Higher Secondary School for Girls", "type": "Private Aided", "ward": 133, "address": "Teynampet, Chennai - 600018" },
-    { "name": "Chennai Higher Secondary School", "type": "Private", "ward": 118, "address": "Nungambakkam, Chennai - 600034" }
-];
+import schoolData from '../../data/schools.json';
+
+// Normalize data structure
+const PRELOADED_SCHOOLS = schoolData.map(s => ({
+    name: s.value, // 'value' from JSON is the name
+    address: s.address,
+    type: "2024 Database", // Mark these as from our DB
+    ...s // Keep other fields like contact info
+}));
 
 const SchoolAutocomplete = ({ name, label, placeholder, required }) => {
   const { register, setValue, watch, formState: { errors } } = useFormContext();
@@ -69,8 +55,8 @@ const SchoolAutocomplete = ({ name, label, placeholder, required }) => {
             
             // 1. Local Search
             let localResults = PRELOADED_SCHOOLS.filter(school => {
-                const sName = school.name.toLowerCase();
-                const sType = school.type.toLowerCase();
+                const sName = (school.name || "").toLowerCase();
+                const sType = (school.type || "").toLowerCase();
                 
                 // If user types 'government' or 'govt', match type OR name
                 if (lowerValue.includes('government') || lowerValue.includes('govt')) {

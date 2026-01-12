@@ -1,0 +1,31 @@
+COLUMNS:
+- Sl.No
+- Name of the Institution/NGO/Trust/Person
+- Street Address
+- Street Address Line 2
+- City
+- State / Province
+- Postal / Zip Code
+- Contact Person
+- Contact Number
+- Alternate Contact Number
+- Whats app Number
+- Email
+- Landline Number
+- Number  of special Children
+- Number  of Parents
+- Number of Teachers
+- Total
+- List of children names, Age, Contact number details
+- Please mention whether lunch is needed or not.
+- Whether Transport is needed or not
+- If Transport needed, please share the full address & Map Location Link ( Transport will be provided if minimum 10 members are in the same boarding point)
+- Additional information
+
+SAMPLE DATA (First 3 rows):
+   Sl.No Name of the Institution/NGO/Trust/Person                                                                                        Street Address                     Street Address Line 2     City State / Province Postal / Zip Code Contact Person  Contact Number  Alternate Contact Number  Whats app Number                            Email            Landline Number  Number  of special Children  Number  of Parents  Number of Teachers  Total                                                                                 List of children names, Age, Contact number details Please mention whether lunch is needed or not. Whether Transport is needed or not                                                                                                                                       If Transport needed, please share the full address & Map Location Link ( Transport will be provided if minimum 10 members are in the same boarding point)                                                                                                          Additional information
+0    1.0                           NIEPMD,CHENNAI                                                                                 ECR,MUTTUKADU,CHENNAI                           EAST COAST ROAD  CHENNAI        Tamilnadu           KOVALAM        JEEVA C    9.944241e+09              9.962102e+09      9.944241e+09        niepmdreception@gmail.com  (04427472113) 04427472046                        113.0               113.0                 4.0  230.0                        https://www.jotform.com/uploads/Ooruni/242253104129446/6005664518226855479/Freedom%20Carnival%20-%202024.pdf                                            Yes     1 Bus is needed for 40 members                                                                                                                                                                             East Coast Road, Muttukadu, Kovalam Post, Chennai - 603 112, Tamilnadu\n\nhttps://maps.app.goo.gl/224UTRopgNLwdUmy6  We request 5 Wheel Chairs for Persons with Disabilities (Cerebral Palsy Children's), 10 Volunteers, 2 Buses and First Aid Box.
+1    2.0      NIEPMD Deafblind Unit Model School   National Institute for Empowerment of Persons with Multiple Disabilities (Divyangjan)(NIEPMD) East C  East Coast Road, Muttukadu, Kovalam Post  Chennai       Tamil Nadu            603112          Sheba    8.825954e+09              9.443708e+09      8.825954e+09      modelschoolniepmd@gmail.com                         ()                          8.0                 8.0                 0.0   16.0  https://www.jotform.com/uploads/Ooruni/242253104129446/6005618508227009949/Db%20secondary%20children%20name%20list%202024-2025.pdf                                            Yes                                Yes  National Institute for Empowerment of Persons with Multiple Disabilities (Divyangjan)\n(Dept.of Empowerment of Persons with Disabilities(Divyangjan), Ministry of Social Justice & Empowerment, Govt. of India)\nEast Coast Road, Kovalam Post, Muttukadu, Chennai - 603112, Tamil Nadu, India                 NIEPMD Model school Muttukaadu will combine with NIEPMD Service (Out of this(8+8)  ,2+2 Will come of their own)
+2    3.0              CSI school for the ASD & ID                                                        No:12,Santhome high road, Mylapore, chennai-04                                       NaN  Chennai       Tamil Nadu            600004        Augusta    9.884438e+09              9.884468e+09      9.884438e+09  roselineroseline30548@gmail.com              () 9884438392                         26.0                26.0                 3.0   55.0                                                                                                                                 NaN                                            Yes                                Yes                                                                                                                                                                                                                   CSI school for the ASD & ID\nNo:12,Santhome high road \nMylapore, Chennai -04                                                                                                                             NaN
+
+Total Rows: 43
