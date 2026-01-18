@@ -6,7 +6,7 @@ import styles from './Steps.module.css';
 const Demographics = () => {
   return (
     <div className={styles.stepContainer}>
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px'}}>
+      <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '15px'}}>
         <Input 
             name="studentCount" 
             label="Total Students" 
@@ -17,6 +17,13 @@ const Demographics = () => {
         <Input 
             name="staffCount" 
             label="Staff/Caregivers" 
+            placeholder="0" 
+            type="number"
+            required 
+        />
+        <Input 
+            name="parentsCount" 
+            label="Parents Count" 
             placeholder="0" 
             type="number"
             required 

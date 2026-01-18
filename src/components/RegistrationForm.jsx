@@ -80,6 +80,7 @@ const RegistrationForm = () => {
                     emergency_contact: values.emergencyContact,
                     student_count: parseInt(values.studentCount) || 0,
                     staff_count: parseInt(values.staffCount) || 0,
+                    parents_count: parseInt(values.parentsCount) || 0,
                     age_group: values.ageGroup,
                     special_needs_type: values.specialNeedsType,
                     specific_requirements: values.specificRequirements,

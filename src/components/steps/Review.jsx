@@ -64,6 +64,7 @@ const Review = () => {
                 data={{
                     "Number of Students": values.studentCount,
                     "Number of Staff": values.staffCount,
+                    "Number of Parents": values.parentsCount,
                     "Age Group": values.ageGroup,
                     "Special Needs Category": values.specialNeedsType,
                     "Specific Requirements": values.specificRequirements || "None"
